@@ -1,0 +1,175 @@
+/* --- BASE STYLING --- */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap');
+
+body {
+    font-family: 'Inter', sans-serif;
+    transition: background-color 0.4s ease, color 0.4s ease;
+    scroll-behavior: smooth;
+}
+
+html {
+
+    scroll-behavior: smooth;
+}
+    
+
+
+/* DARK MODE ENGINE */
+.dark { background-color: #054809; color: #f8fafc; }
+.dark .glass-nav { background: rgba(17, 169, 80, 0.8); border-bottom: 1px solid rgba(255,255,255,0.05); }
+.dark .modal-content { background: #0f172a; border: 1px solid #1e293b; }
+.dark .auth-input { background: rgba(17, 169, 80, 0.8); color: white; border: 1px solid #334155; }
+
+/* NAVIGATION BAR & GLASS BACKGROUND CONTROL */
+.glass-nav {
+    background: white;
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+.nav-logo-text {
+    color: rgb(18, 81, 18);
+    font-size: 35px;
+}
+
+.logo-img img{
+    border-radius: 9px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#app-header-offline-button{
+    padding: 7px;
+    border:none;
+    border-radius: 8px;
+    box-shadow:0 5ps 5px #0a5c0d;
+    background: #0a5c0d;
+}
+
+#app-header-offline-button button a {
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 15px;
+    font-family: var(--font-family1);
+    color:var(--btn-border-color);
+    color:white;
+}
+
+
+#app-header-quit-button {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 140px;
+
+}
+
+
+#app-header-quit-button button {
+    
+    padding: 10px;
+    border:none;
+    border-radius: 8px;
+    box-shadow:0 5ps 5px #0a5c0d;
+    background: #0a5c0d;
+
+
+
+}
+
+#app-header-quit-button button a {
+    text-decoration: none;
+    font-weight: 550;
+    font-size: 15px;
+    font-family: var(--font-family1);
+    color:var(--btn-border-color);
+    color:white;
+    
+
+}
+
+
+/* INPUTS */
+.auth-input {
+    width: 100%;
+    padding: 1rem;
+    background: #f8fafc;
+    border: 2px solid transparent;
+    border-radius: 1rem;
+    font-size: 0.875rem;
+    outline: none;
+    transition: all 0.2s ease;
+}
+
+
+/* THE PLAY NOW BUTTON */
+#playNowBtn   {
+    background: linear-gradient(135deg, #4ade80, #16a34a);
+    color: white;
+    padding: 12px 30px;
+    border-radius: 9999px;
+    font-size: 1.125rem;
+    font-weight: 700;
+    transition: all 0.3s ease;
+    margin-top: 10px;
+}
+
+@media (max-width: 400px) {
+    #playNowBtn { padding: 10px 20px; font-size: 1rem; }
+}
+
+
+.auth-input:focus {
+    border-color: #12681b;
+    background: white;
+    box-shadow: 0 0 0 4px rgba(18, 104, 27, 0.1);
+}
+
+/* MODAL ANIMATION */
+.modal-content {
+    transform: scale(0.9) translateY(20px);
+    opacity: 0;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.modal-active .modal-content {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+}
+
+/* RESPONSIVENESS ENGINE */
+@media (max-width: 320px) {
+    .hero-title { font-size: 1.8rem !important; line-height: 1.1; }
+    .nav-logo-text { display: none; }
+    .modal-content { padding: 1.5rem !important; }
+}
+
+@media (max-width: 250px) {
+    html { font-size: 10px; }
+    .hero-btn { padding: 12px 5px !important; font-size: 0.75rem !important; }
+    .modal-content p { font-size: 0.7rem; }
+}
+
+
+
+
+/* PROFILE AND DASHBOARD STYLING PLUS RESPONSIVENESS */
+
+/* Ensure hidden actually works with Tailwind */
+.hidden { display: none !important; }
+.block { display: block !important; }
+
+/* Dashboard Card Hover Transitions */
+#userDashboard .bg-white, #userDashboard .dark\:bg-slate-800 {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#userDashboard .bg-white:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+}
+
+/* Fix for the reveal class in the dashboard */
+#userDashboard .reveal.active {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+}

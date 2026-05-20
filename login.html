@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Me</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="login.css">
+    <link rel="icon" type="image/x-icon" href="images/ChatGPT Image May 10, 2026, 04_51_07 AM.png">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body class="bg-slate-50 text-slate-900 transition-colors duration-300">
+
+    <nav class="glass-nav fixed top-0 w-full z-50 py-3">
+        <div class="max-w-7xl mx-auto px-4 flex justify-between items-center">
+            <div class="flex items-center gap-2">
+                <div class="w-9 h-9 bg-[#12681b] rounded-lg flex items-center justify-center text-white shrink-0">
+                    <i class="logo-img"><img src="images/ChatGPT Image May 10, 2026, 04_51_07 AM.png"></i>
+                </div>
+                <span class="nav-logo-text font-bold text-xl tracking-tighter dark:text-white">QuizMe</span>
+            </div>
+
+            <div class="flex items-center gap-3">
+                <button id="themeToggle" class="w-10 h-10 rounded-full flex items-center justify-center hover:bg-slate-200 dark:hover:bg-slate-800 transition-all">
+                    <i class="fas fa-moon dark:text-yellow-400" id="themeIcon"></i>
+                </button>
+                <button onclick="openModal('signup')" class="hidden bg-[#12681b] text-white px-5 py-2 rounded-full text-xs font-bold uppercase hover:bg-green-800 transition-all">Sign Up</button>
+            </div>
+            
+        <div id ="app-header-offline-button">
+                <button><a href="mainquizapp.html">play offline</a></button>
+        </div>
+        </div>
+        
+    </nav>
+
+    <!-----HERO SECTION FOR THE LOG IN PAGE---->
+
+    <section class="section-padding pt-32 pb-16 px-6">
+        <div class="max-w-7xl mx-auto text-center">
+            <div class="reveal active">
+                <h1 class="hero-title text-4xl sm:text-7xl font-extrabold leading-tight mb-6 dark:text-white">
+                    Want to<span class="text-[#12681b]"> Quiz On</span> <br> Your Knowledge?
+                </h1>
+                <p class="text-slate-600 dark:text-slate-400 mb-10 max-w-lg mx-auto">Login to access deep elite concepts that make you better than the rest...</p>
+                
+                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                    <button onclick="openModal('login')" class="hero-btn w-full sm:w-56 bg-[#12681b] text-white py-4 rounded-2xl font-bold shadow-xl hover:bg-green-900 active:scale-95 transition-all">
+                        <i class="fas fa-sign-in-alt mr-2"></i> Log In
+                    </button>
+                    <button onclick="openModal('signup')" class="hero-btn w-full sm:w-56 border-2 border-[#12681b] text-[#12681b] dark:text-white py-4 rounded-2xl font-bold hover:bg-green-50 dark:hover:bg-green-900/20 active:scale-95 transition-all">
+                        Sign Up
+                    </button>
+
+
+                    
+    
+                </div>
+            </div>
+        </div>
+        <div id ="app-header-quit-button">
+                <button><a href="index.html">Quit</a></button>
+        </div>
+    </section>
+
+
+    <!------ THE PROFILE DASHBOARD SECTION-->
+
+    <section id="userDashboard" class="section-padding pt-32 pb-16 px-6 hidden">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-12 gap-6 reveal active">
+                <div>
+                    <h2 class="text-sm font-bold text-[#12681b] uppercase tracking-[0.2em] mb-2">Welcome, Great Mind</h2>
+                    <h1 class="text-4xl md:text-5xl font-black dark:text-white">
+                        Hello, <span id="userNameDisplay" class="text-[#12681b]">Brain-up</span>!
+                    </h1>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+                <div class="bg-white dark:bg-slate-800 p-8 rounded-[2.5rem] shadow-xl border-b-4 border-[#12681b] reveal active">
+                    <div class="w-12 h-12 bg-green-100 dark:bg-green-900/30 rounded-2xl flex items-center justify-center mb-6">
+                        <i class="fas fa-fire text-[#12681b]"></i>
+                    </div>
+                    <h3 class="text-slate-500 text-sm font-bold uppercase mb-1">Current Streak</h3>
+                    <p class="text-3xl font-black dark:text-white">12 Days</p>
+                    <button id="playNowBtn"><a href ="index.html">Play Now</a></button>
+                </div>
+
+                <div class="bg-white dark:bg-slate-800 p-8 rounded-[2.5rem] shadow-xl border-b-4 border-[#28a745] reveal active">
+                    <div class="w-12 h-12 bg-emerald-100 dark:bg-emerald-900/30 rounded-2xl flex items-center justify-center mb-6">
+                        <i class="fas fa-star text-[#28a745]"></i>
+                    </div>
+                    <h3 class="text-slate-500 text-sm font-bold uppercase mb-1">Global Rank</h3>
+                    <p class="text-3xl font-black dark:text-white">#472</p>
+                </div>
+
+                <div class="bg-white dark:bg-slate-800 p-8 rounded-[2.5rem] shadow-xl border-b-4 border-slate-200 reveal active">
+                    <div class="w-12 h-12 bg-slate-100 dark:bg-slate-700 rounded-2xl flex items-center justify-center mb-6">
+                        <i class="fas fa-trophy text-slate-400"></i>
+                    </div>
+                    <h3 class="text-slate-500 text-sm font-bold uppercase mb-1">Quizzes Won</h3>
+                    <p class="text-3xl font-black dark:text-white">85%</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+
+
+
+<!---- THE AUTH MODAL CLASS 
+(the authentication modal section that pops up our signin and signup form)-->
+
+    <div id="authModal" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-[100] hidden items-center justify-center p-4">
+        <div class="modal-content w-full max-w-sm rounded-[2.5rem] p-8 shadow-2xl relative">
+            <button onclick="closeModal('authModal')" class="absolute top-5 right-5 text-slate-400 hover:text-red-500 transition-colors">
+                <i class="fas fa-times-circle text-2xl"></i>
+            </button>
+
+            <div class="mb-6 text-center">
+                <h2 id="modalTitle" class="text-2xl font-black dark:text-white uppercase tracking-tighter">Login</h2>
+                <p id="modalSub" class="text-slate-500 text-sm">Welcome back, Expert.</p>
+                
+            </div>
+        
+            
+            <div class="space-y-4">
+                <div id="nameFieldContainer">
+                    <label class="block text-[10px] font-bold uppercase text-slate-400 mb-1 ml-2">Full Name</label>
+                    <input type="text" id="authName" placeholder="Enter Name" class="auth-input">
+                </div>
+                <div>
+                    <label class="block text-[10px] font-bold uppercase text-slate-400 mb-1 ml-2">Email</label>
+                    <input type="email" id="authEmail" placeholder="name@example.com" class="auth-input">
+                </div>
+                <div>
+                    <label class="block text-[10px] font-bold uppercase text-slate-400 mb-1 ml-2">Password</label>
+                    <input type="password" id="authPass" placeholder="••••••••" class="auth-input">
+                </div>
+                
+                <button onclick="handleAuth()" class="w-full bg-[#12681b] text-white py-4 rounded-2xl font-bold shadow-lg hover:bg-green-800 active:scale-95 transition-all mt-2">
+                    <span id="submitBtnText">Enter Platform</span>
+                </button>
+
+                <div class="pt-4 text-center">
+                    <p class="text-xs text-slate-500">
+                        <span id="switchText">New here?</span> 
+                        <button onclick="toggleMode()" id="switchBtn" class="text-[#12681b] font-bold hover:underline ml-1">Create Account</button>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    
+
+    <div id="quizPromptModal" class="fixed inset-0 bg-[#12681b]/90 backdrop-blur-lg z-[110] hidden items-center justify-center p-4">
+        <div class="modal-content text-center bg-white dark:bg-slate-900 p-10 rounded-[3rem] shadow-2xl max-w-sm">
+            <div class="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                <i class="fas fa-rocket text-[#12681b] text-3xl"></i>
+            </div>
+            <h2 class="text-3xl font-black mb-2 dark:text-white">You're In!</h2>
+            <p class="text-slate-500 mb-8">The path to mastery is open. Are you ready to challenge your brain?</p>
+            <a href="index.html" class="block w-full bg-[#12681b] text-white py-5 rounded-2xl font-black text-lg shadow-xl hover:bg-green-800 hover:-translate-y-1 transition-all">
+                START THE QUIZ NOW
+            </a>
+        </div>
+    </div>
+
+    <script src="login.js"></script>
+</body>
+</html>

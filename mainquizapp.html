@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="mainquiz.css">
+    <link rel="icon" type="image/x-icon" href="images/ChatGPT Image May 10, 2026, 04_51_07 AM.png">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <title>Quiz Me</title>
+</head>
+<body>
+
+
+
+    <div class="app-header">
+        <div id ="app-header-logo">
+                <img src="images/ChatGPT Image May 10, 2026, 04_51_07 AM.png">
+                <p>QUIZME</p>
+        </div>
+        <div id ="app-header-quit-button">
+                <button><a href="login.html">Quit</a></button>
+        </div>
+        
+            
+    </div>
+
+    <div class="app">
+        <h1>quiz started...</h1>
+            <div class="quiz">
+                    <div class="progress-wrapper">
+                    <div class="progress-container">
+                    <div id="progress-bar"></div>
+            </div>
+            <span id="progress-percentage">0%</span>
+    </div>
+    <p id="progress-text">Concepts Mastered</p>
+                    <h2 id="question">Question goes here</h2>
+                    <!----answer buttons section--->
+                    <div id="answer-buttons">
+                            <button class="btn">Answer 1</button>
+                            <button class="btn">Answer 2</button>
+                            <button class="btn">Answer 3</button>
+                            <button class="btn">Answer 4</button>   
+                    </div>
+                    <button id="next-btn">Next</button>
+            </div>
+
+    </div>
+
+
+
+    
+    
+    
+    <script src="questions.js"></script>
+    <script src="mainquiz.js"></script>
+     <script src="script.js"></script>
+    
+</body>
+</html>

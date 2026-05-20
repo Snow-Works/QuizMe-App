@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Me</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="mainquiz.css">
+    <link rel="icon" type="image/x-icon" href="images/ChatGPT Image May 10, 2026, 04_51_07 AM.png">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body class="bg-slate-50 text-slate-900 overflow-x-hidden hero-gradient transition-colors duration-300">
+
+    <!----the heading section carrying the navigation bar-->
+
+    <nav class="glass fixed top-0 w-full z-50 py-4">
+        <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
+            <div class="flex items-center gap-2">
+                <div class="w-12 h-12 rounded-lg flex items-center justify-center overflow-hidden">
+                    <img src="images/ChatGPT Image May 10, 2026, 04_51_07 AM.png" class="w-full h-full object-contain">
+                </div>
+                <span class="text-xl font-bold tracking-tight dark:text-white  xs:block">QuizMe</span>
+            </div>
+
+            <div class="flex items-center gap-4">
+                <button id="themeToggle" class="p-2 rounded-full hover:bg-slate-300 dark:hover:bg-slate-700 transition-all">
+                    <i class="fas fa-moon dark:text-black-400" id="themeIcon"></i>
+                </button>
+                
+                <div class="relative group">
+                    <button onclick="toggleProfilePopup()" id="navProfileBtn" class="relative w-11 h-11 rounded-2xl bg-white dark:bg-slate-800 shadow-sm border border-slate-200 dark:border-slate-700 flex items-center justify-center transition-all hover:scale-105 overflow-hidden">
+                        <p>My<br>profile</p>
+                        <span class="absolute bottom-1 right-1 w-2.5 h-2.5 bg-emerald-500 border-2 border-white dark:border-slate-800 rounded-full">QUIZME</span>
+                    </button>
+
+                    <div id="profilePopup" class="absolute right-0 mt-4 w-72 bg-white/90 dark:bg-slate-900/95 backdrop-blur-xl rounded-[2rem] shadow-2xl border border-white/20 hidden flex-col p-6 z-[100] animate-in fade-in zoom-in duration-200">
+                        <div id="guestOptions" class="space-y-3">
+                            <p class="text-[10px] font-black uppercase text-[#12681b] tracking-[0.2em]">Account Access</p>
+                            <button onclick="window.location.href='login.html'" class="group w-full flex items-center justify-between p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/50 hover:bg-[#12681b] transition-all text-left">
+                                <span class="font-bold text-sm text-[#12681b] group-hover:text-black">Login My Account</span>
+                                <i class="fas fa-chevron-right group-hover:text-white text-xs"></i>
+                            </button>
+                            <button onclick="openCommunityModal()" class="w-full p-4 rounded-2xl border-2 border-dashed border-slate-200 dark:border-slate-700 dark:text-white font-bold text-sm">Join Our Community</button>
+                        </div>
+                        <div id="memberOptions" class="hidden">
+                            <div class="flex items-center gap-3 pb-6 mb-4 border-b border-slate-100 dark:border-slate-800">
+                                <div class="w-12 h-12 rounded-xl bg-[#12681b] flex items-center justify-center text-white font-black text-xl"><span id="initialsDisplay">E</span></div>
+                                <div class="overflow-hidden text-sm">
+                                    <p id="popupUserName" class="font-black dark:text-white truncate">Explorer</p>
+                                    <p class="text-[10px] text-[#28a745] font-bold uppercase tracking-widest">Verified Pro</p>
+                                </div>
+                            </div>
+                            <button onclick="window.location.href='index.html'" class="w-full p-3 bg-[#12681b] text-white rounded-xl font-bold mb-2">Start Training</button>
+                            <button onclick="logout()" class="w-full p-3 text-red-500 font-bold text-sm text-left">Sign Out</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <section class="pt-40 pb-12 px-6">
+        <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+                <h1 class="text-4xl xs:text-5xl lg:text-7xl font-extrabold leading-tight mb-6 dark:text-white">
+                    Master <span class="text-[#12681b]">Growing</span> your own <span class="text-[#28a745]">Brain Capacity</span>.
+                </h1>
+                <p class="text-lg text-slate-600 dark:text-slate-400 mb-8 max-w-lg">The premium engine designed for elite investors. Prove your mastery with our stalling-progress challenge.</p>
+                <div class="flex flex-wrap gap-4">
+                    <button onclick="openCommunityModal()" class="bg-[#12681b] text-white px-8 py-4 rounded-xl font-bold shadow-xl hover:scale-105 transition-all">Join Our Community</button>
+                    <button onclick="openStoryModal()" class="px-8 py-4 rounded-xl font-bold border border-slate-300 dark:border-slate-700 dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-all">Learn More</button>
+                </div>
+            </div>
+            <!----THE 3D CARD SECTION IN THE HERO-->
+            <div class="relative hidden lg:block">
+                <div class="float max-w-[400px] w-full h-[450px] bg-gradient-to-br from-[#13681b] to-emerald-400 rounded-[3rem] shadow-2xl flex items-center justify-center relative overflow-hidden">
+                    <i class="fas fa-question text-8xl opacity-15 absolute top-10 right-10 text-white"></i>
+                    <i class="fas fa-brain text-8xl opacity-10 absolute top-40 left-7 text-white"></i>
+                    <div class="logo-3d-scene">
+                        <div class="logo-3d-object">
+                            <div class="coin-face coin-front"><img src="images/main logo .png"></div>
+                            <div class="coin-edge"></div>
+                            <div class="coin-back"></div>
+                        </div>
+                    </div>
+                    <i class="fas fa-question-circle text-8xl opacity-15 absolute bottom-10 right-10 text-white"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+    <!------ELITE TRAINING FEATURE TRAINING SECTION ------------>
+
+    <section id="explore" class="py-24 bg-white dark:bg-slate-900/50 transition-colors">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-black dark:text-white mb-4">Elite Training Features</h2>
+                <div class="w-24 h-1.5 bg-[#12681b] mx-auto rounded-full"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="reveal p-8 rounded-[2.5rem] bg-slate-50 dark:bg-slate-800 border border-slate-100 dark:border-slate-700 transition-all hover:shadow-2xl hover:-translate-y-2">
+                    <div class="w-14 h-14 bg-green-100 dark:bg-green-900/30 rounded-2xl flex items-center justify-center text-[#12681b] mb-6">
+                        <i class="fas fa-bolt text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 dark:text-white">Stalling Progress</h3>
+                    <p class="text-slate-600 dark:text-slate-400 leading-relaxed">Our algorithm locks your advancement on failure. You must demonstrate perfect accuracy to move forward.</p>
+                </div>
+                <div class="reveal p-8 rounded-[2.5rem] bg-slate-50 dark:bg-slate-800 border border-slate-100 dark:border-slate-700 transition-all hover:shadow-2xl hover:-translate-y-2">
+                    <div class="w-14 h-14 bg-emerald-100 dark:bg-emerald-900/30 rounded-2xl flex items-center justify-center text-[#28a745] mb-6">
+                        <i class="fas fa-eye text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 dark:text-white">Deep Insights</h3>
+                    <p class="text-slate-600 dark:text-slate-400 leading-relaxed">Don't just guess. Every interaction provides high-level logic breakdowns to ensure actual understanding.</p>
+                </div>
+                <div class="reveal p-8 rounded-[2.5rem] bg-slate-50 dark:bg-slate-800 border border-slate-100 dark:border-slate-700 transition-all hover:shadow-2xl hover:-translate-y-2">
+                    <div class="w-14 h-14 bg-green-100 dark:bg-green-900/30 rounded-2xl flex items-center justify-center text-[#12681b] mb-6">
+                        <i class="fas fa-database text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 dark:text-white">3,000+ Concepts</h3>
+                    <p class="text-slate-600 dark:text-slate-400 leading-relaxed">A massive, curated bank of mental models covering JavaScript logic, asset allocation, and capital growth.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="communityModal" class="fixed inset-0 z-[110] hidden items-center justify-center p-4 backdrop-blur-md bg-black/40">
+        <div class="bg-white dark:bg-slate-900 w-full max-w-sm rounded-[2.5rem] p-8 shadow-2xl relative overflow-hidden">
+            <div id="emojiContainer" class="absolute inset-0 pointer-events-none"></div>
+            <div id="communityDecision">
+                <h2 class="text-2xl font-black mb-2 dark:text-white text-center">Already have an account?</h2>
+                <div class="grid grid-cols-2 gap-4 mt-8">
+                    <button onclick="handleDecision('yes')" class="py-4 rounded-2xl bg-[#12681b] text-white font-bold hover:scale-105 transition-all">Yes</button>
+                    <button onclick="handleDecision('no')" class="py-4 rounded-2xl border-2 border-slate-200 dark:border-slate-700 dark:text-white font-bold hover:scale-105 transition-all">No</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="storyModal" class="fixed inset-0 z-[110] hidden items-center justify-center p-4 backdrop-blur-lg bg-slate-900/80">
+        <div class="bg-white dark:bg-slate-900 w-full max-w-xl rounded-[2.5rem] p-10 shadow-2xl max-h-[85vh] overflow-y-auto">
+            <h2 class="text-3xl font-black mb-6 dark:text-white">The QuizMe Mission</h2>
+            <div class="text-slate-600 dark:text-slate-400 space-y-4">
+                <p>Society is drowning in information but starving for wisdom. We solve the problem of superficial learning by forcing mastery through high-level logic.</p>
+                <p>Our goal is to build neural resilience for developers and investors in a world of distraction.</p>
+            </div>
+            <button onclick="closeStoryModal()" class="mt-8 w-full py-4 bg-slate-100 dark:bg-slate-800 rounded-2xl font-bold dark:text-white">Back to Hero</button>
+        </div>
+    </div>
+
+
+    <!--------THE MOVING SLIDE ANIMATION SECTION ---------->
+    <div class="w-full overflow-hidden bg-slate-100 dark:bg-slate-800/50 py-8 border-y border-slate-200 dark:border-slate-700 my-10">
+        <div class="scroller-track">
+            <div class="scroller-item"><i class="fas fa-brain text-[#purple]"></i> GAIN MASTERY IN WHAT YOU ALREADY KNOW</div>
+            <div class="scroller-item"><i class="fas fa-book text-[gold]"></i> BUILD STRATEGY</div>
+            <div class="scroller-item"><i class="fas fa-hand text-[purple]"></i> CONTROL YOUR REALITY</div>
+            <div class="scroller-item"><i class="fas fa-question text-[purple]"></i> WHAT I DO NOT KNOW ?</div>
+            <div class="scroller-item"><i class="fas fa-road text-[#12681b]"></i> JOURNEY DEEP</div>
+            <div class="scroller-item"><i class="fas fa-lightbulb text-[gold]"></i> WISDOM SURGE</div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="mainquiz.js"></script>
+</body>
+</html>

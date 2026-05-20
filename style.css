@@ -1,0 +1,442 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+
+}
+
+
+body{
+    scroll-behavior: smooth;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+
+        :root {
+            --primary-green: #12681b;
+            --accent-green: #28a745;
+        }
+
+        body { font-family: 'Inter', sans-serif; transition: background-color 0.3s, color 0.3s; }
+        
+        /* Dark Mode Transitions */
+        .dark { background-color:  rgba(17, 169, 80, 0.8); color: #f8fafc; }
+        .dark .glass { background:  rgba(17, 169, 80, 0.8); border-color: rgba(255,255,255,0.1); }
+        .dark .card { background: #1e293b; border: 1px solid #334155; }
+
+        /* the image at the right */
+        .relative img{
+            position: absolute;
+            height: 250px;
+            width: 250px;
+            border-radius: 50%;
+            object-fit: cover;
+            animation: float 3s ease-in-out infinite;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .relative img:hover{
+            transform: rotateY(42deg);
+            transition: transform 5s ease;
+            perspective:100px;
+            box-shadow: 10px 35px 50px rgba(0, 0, 0, 0.3);
+            border:2px solid #042507;
+            cursor: pointer;
+
+        }
+
+        .relative p {
+            font-size: 9px;
+            font-weight: 500;
+
+        }
+
+
+        .text-xl {
+            font-size: 30px;
+            font-weight: 700;
+        }
+        /* this is the div carrying the logo on the nav bar */
+
+        .float{
+            animation: floating 3s ease-in-out infinite;
+            box-shadow: 10px 20px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .relative hidden{
+            display: none;
+
+        }
+
+        
+        
+        /* the logo on the navbar */
+
+        .logo-img img{
+            border-radius: 8px;
+        }
+
+
+
+
+
+
+        /* logo at the hero section */
+
+
+    .logo-3d-scene {
+    width: 250px;
+    height: 250px;
+    perspective: 1000px;
+}
+
+.logo-3d-object {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 1s ease;
+    animation: slowSpin 10s linear infinite;
+}
+
+.coin-face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    backface-visibility: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.coin-front {
+    /* Push it slightly further than the edge to ensure visibility */
+    transform: translateZ(5px); 
+    background: white; /* Fallback color */
+    z-index: 10;
+}
+
+.coin-front img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    display: block; /* Ensures no weird spacing issues */
+}
+
+.coin-edge {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: #0a3d10;
+    /* This creates the solid middle part */
+    transform: translateZ(0); 
+    border: 44px solid #12681b;
+    box-shadow: 10px 15px 25px rgba(0,0,0,0.3);
+}
+
+.coin-back {
+    transform: rotateY(180deg) translateZ(5px);
+    background: #0f791b;
+}
+
+/* Hover pause */
+.logo-3d-scene:hover .logo-3d-object {
+    animation-play-state: paused;
+    transform: rotateY(180deg);
+}
+
+@keyframes slowSpin {
+    from { transform: rotateY(0deg); }
+    to { transform: rotateY(360deg); }
+}
+
+
+
+/* 3D CARD SECTION */
+
+
+/* ---  VISIBILITY & RESPONSIVENESS --- */
+
+/*  Removing the rule that was hiding the image box on mobile */
+@media (max-width: 1024px) {
+    .hero-image-box, 
+    .relative.hidden.lg\:block,
+    [class*="hidden lg:block"] { 
+        display: flex !important; /* makes  it to show up */
+        justify-content: center;
+        margin-top: 2rem;
+    }
+}
+
+/*  Making the card scale fluidly so it never overflows 250px */
+.float {
+    width: 100% !important;
+    max-width: 400px; /* Original size for desktop */
+    min-width: 180px; /* Shrinks for 250px screens */
+    aspect-ratio: 1 / 1;
+    height: auto !important;
+    margin: 0 auto;
+    position: relative;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+}
+
+/*  Keeping the coin inside the card at all times */
+.logo-3d-scene {
+    width: 50% !important; 
+    max-width: 200px;
+    aspect-ratio: 1/1;
+}
+
+/*  Fix for the absolute smallest screens (250px) */
+@media (max-width: 300px) {
+    .float {
+        max-width: 180px !important; /* Fits perfectly inside 250px */
+    }
+    .logo-3d-scene {
+        width: 100px !important;
+    }
+}
+
+
+
+        .glass {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .hero-gradient {
+            background: radial-gradient(circle at top right, rgba(40, 167, 69, 0.15), transparent);
+        }
+        
+
+        .float { animation: floating 3s ease-in-out infinite; }
+        @keyframes floating {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .btn-pulse {
+            box-shadow: 0 0 0 0 rgba(40, 167, 69, 0.7);
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(40, 167, 69, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(40, 167, 69, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(40, 167, 69, 0); }
+        }
+
+        .reveal { opacity: 0; transform: translateY(30px); transition: 0.8s all ease; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+
+
+
+
+
+
+        /* --- SCROLLER SECTION AND RESPONSIVENESS --- */
+
+        /* Animation Keyframes */
+@keyframes scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(calc(-250px * 3)); }
+}
+
+@keyframes flyEmoji {
+    0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+    100% { transform: translateY(-500px) rotate(360deg); opacity: 0; }
+}
+
+.scroller-track {
+    display: flex;
+    width: calc(250px * 6);
+    animation: scroll 20s linear infinite;
+}
+
+.scroller-item {
+    width: 250px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    font-weight: 900;
+    color: #1b6c2b;
+}
+
+.animate-fly-emoji {
+    animation: flyEmoji 2s ease-out forwards;
+}
+
+/* Scroll Reveal States */
+.reveal { opacity: 0; transform: translateY(30px); transition: 0.8s all ease; }
+.reveal.active { opacity: 1; transform: translateY(0); }
+
+/* Ultra Tiny Screen Fix (250px) */
+@media (max-width: 300px) {
+    h1 { font-size: 1.6rem !important; }
+    .p-8 { padding: 1.5rem !important; }
+    .nav-avatar-btn { width: 35px !important; height: 35px !important; }
+    .scroller-item { width: 180px; font-size: 0.7rem; }
+}
+
+
+
+
+
+
+
+/* RESPONSIVENESS section */
+
+/* --- FIXED RESPONSIVENESS ENGINE --- */
+
+/*  Ensuring the card container is visible and centered on mobile */
+@media (max-width: 1024px) {
+    .relative.hidden.lg\:block {
+        display: flex !important; /* Overrides the 'hidden' class */
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        margin: 2rem 0;
+    }
+}
+
+/*  Prevent Distortion on Standard Mobile (320px - 480px) */
+@media (max-width: 480px) {
+    .float {
+        height: 320px !important; /* Shorter height to maintain proportions */
+        max-width: 90% !important;
+        border-radius: 2rem !important;
+    }
+    
+    /* Scale the 3D scene so it fits perfectly without touching edge code */
+    .logo-3d-scene {
+        transform: scale(0.8);
+    }
+}
+
+/*  Ultra-Narrow Fix (250px Stress Test) */
+@media (max-width: 250px) {
+    .float {
+        height: 200px !important; /* Drastically reduced to prevent "tower" look */
+        max-width: 220px !important;
+        border-radius: 1.5rem !important;
+    }
+
+    /* Scale the 3D object further to prevent it from bleeding out */
+    .logo-3d-scene {
+        transform: scale(0.5);
+    }
+
+    /* Adjust background icons so they don't clutter the tiny space */
+    .float i.fas {
+        font-size: 2.5rem !important;
+        opacity: 0.05 !important; /* Lower opacity for cleaner look */
+    }
+
+    /* Reposition icons to the corners so they don't hide under the logo */
+    .float .fa-question { top: 10px !important; right: 10px !important; }
+    .float .fa-brain { top: 20px !important; left: 10px !important; }
+    .float .fa-question-circle { bottom: 10px !important; right: 10px !important; }
+};
+
+
+
+/* ULTRA-MICRO VIEWPORT BREAKPOINT (340px - 100px) */
+@media (max-width: 340px) {
+    /* Preventing any parent component container from overflowing horizontally */
+    html, body {
+        overflow-x: hidden !important;
+        width: 100% !important;
+    }
+
+    /* making global typography downscaling for extremely tight areas */
+    h1 {
+        font-size: clamp(1.1rem, 7vw, 1.6rem) !important;
+        line-height: 1.15 !important;
+        letter-spacing: normal !important;
+        word-break: break-word !important; /* Forces text to break instead of bleeding out */
+    }
+
+    h2 {
+        font-size: clamp(1rem, 6vw, 1.3rem) !important;
+        word-break: break-word !important;
+    }
+
+    p, span, button, a {
+        font-size: clamp(0.75rem, 4vw, 0.95rem) !important;
+        word-break: break-word !important;
+    }
+
+    /* maintaining the utility padding and margins from parent grids/flex boxes */
+    .max-w-7xl, 
+    nav div, 
+    .hero-grid,
+    div[class*="px-"], 
+    div[class*="p-"] {
+        padding-left: 8px !important;
+        padding-right: 8px !important;
+    }
+
+    /* Handling the Hero 3D Card Platform Container */
+    .float {
+        height: clamp(160px, 60vw, 220px) !important;
+        width: 95% !important;
+        max-width: 280px !important;
+        margin: 15px auto !important;
+        padding: 0 !important;
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+    }
+
+    /* Dynamically scaling down the 3D coin scene relative to extreme viewports */
+    .logo-3d-scene {
+        position: relative !important;
+        top: 0 !important;
+        left: 0 !important;
+        transform: scale(clamp(0.35, 2vw + 0.2, 0.55)) !important;
+        margin: 0 auto !important;
+    }
+
+    /* Flattening the flex columns that are compressed horizontally */
+    .flex, .hero-btn-group, nav {
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+        gap: 8px !important;
+    }
+
+    /* Ensure interactive buttons expand to fit micro-widths cleanly */
+    button, .hero-btn-group button, a.block {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 10px 4px !important;
+        box-sizing: border-box !important;
+    }
+
+    /* Scaling  back the  background icons entirely to free up vertical/horizontal real estate */
+    .float i.fas {
+        display: none !important;
+    }
+}
+
+
+
+
+
+
+
+
+

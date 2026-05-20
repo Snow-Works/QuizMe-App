@@ -1,0 +1,402 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing:border-box;
+}
+
+body{
+    scroll-behavior: smooth;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+
+
+
+:root{
+    --app-bg:whitesmoke;
+    --body-bg: linear-gradient(135deg, #e2efe4, #d3d8d4d3);
+    --font-family1: open sans, sans-serif;
+    --font-family2: sans-serif;
+    --family1-color: #000000ea;
+    --family2-color: #090808ef;
+    --btn-background: linear-gradient(135deg,#e9e9e9d3,#fbfbfb );
+    --btn-text-color: #000000ea;
+    --btn-border-color: #12681bd3;
+    
+}
+
+
+body{
+    background: var(--body-bg);
+    scroll-behavior: smooth;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+
+
+
+.app-header{
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    align-items: center;
+    background: var(--btn-border-color);
+    width: 90%;
+    max-width: 37.5rem;
+    margin: 1.5rem auto 0;
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+#app-header-logo {
+    display: flex;
+    text-align: center;
+    align-items: center;
+    padding: px;
+
+}
+
+#app-header-logo p {
+    margin-left: 6px;
+    align-items: center;
+    text-align: center;
+    margin-top: 3px;
+    font-family: var(--font-family2);
+    font-weight: 650;
+    color:white;
+
+}
+
+
+#app-header-logo img{
+    height: 40px;
+    border-radius: 50%;
+
+}
+
+#app-header-quit-button button {
+    padding: 10px;
+    border:none;
+    border-radius: 8px;
+    box-shadow:0 5ps 5px #0a5c0d;
+
+
+
+}
+
+#app-header-quit-button button a {
+    text-decoration: none;
+    font-weight: 550;
+    font-family: var(--font-family1);
+    color:var(--btn-border-color);
+    
+    
+
+}
+
+
+.app-header h1{
+    font-family: var(--font-family1);
+    padding: 1rem;
+    color: #fff;
+    font-weight: 500;
+    text-align: center;
+}
+
+.app {
+    background: var(--app-bg);
+    width: 90%;
+    max-width: 37.5rem;
+    margin: 4.25rem auto 0;
+    padding: 2rem;
+    border-radius: 10px;
+    font-family: var(--font-family1);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+
+}
+
+.app h1{
+    font-family: var(--font-family1);
+    color:var(--family1-color);
+    font-weight: 600;
+    border-bottom: 2px solid var(--family1-color);
+    padding-bottom: 1.8rem;
+    font-size: 1.5rem;
+
+}
+
+.quiz {
+    padding: 20px 0;
+
+}
+
+.quiz h2{
+    font-family: var(--font-family2);
+    color: var(--family2-color);
+    font-weight: 600;
+    font-size: 1.2rem;
+}
+
+.btn{
+    background: var(--btn-background);
+    color: var(--btn-text-color);
+    font-family: var(--font-family1);
+    font-weight: 500;
+    font-size: 1rem;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    width: 100%;
+    border-radius: 5px;
+    cursor: pointer;
+    border: 1px solid ;
+    margin: 0.63rem 0;
+    text-align: center;
+    align-items: center;
+    transition: all 0.3s ease-in;
+}
+
+.btn:hover:not([disabled]){
+    background: var(--btn-border-color);
+    color: #fff;
+    border: 1px solid var(--btn-border-color);
+}
+
+.btn:disabled{
+    cursor: no-drop;
+}
+
+#next-btn{
+    display:none;
+    background: var(--btn-border-color);
+    color: #fff;
+    border: 1px solid var(--btn-border-color);
+    border-radius: 5px;
+    padding: 0.8rem 1.5rem;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    width: 150px;
+    margin: 1rem auto 0;
+    cursor:pointer;
+    transition: all 0.3s ease-in;
+
+    }
+
+    .correct {
+        background-color: #0a5c0d; 
+        
+    }
+
+    .incorrect {
+        background-color: #a40606; 
+        
+    }
+
+
+    #explanation {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #333;
+    animation: fadeIn 0.5s ease;
+}
+
+
+/* THE PROGRESSIVE BAR SECTION */
+
+
+.progress-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 5px;
+}
+
+.progress-container {
+    flex-grow: 1;
+    background-color: #e0e0e0;
+    border-radius: 10px;
+    height: 18px;
+    overflow: hidden;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.2);
+}
+
+#progress-bar {
+    height: 100%;
+    width: 0%; 
+    /* The moving gradient effect */
+    background: linear-gradient(270deg, #12681b, #28a745, #a8e063);
+    background-size: 600% 600%;
+    animation: movingGradient 3s ease infinite;
+    transition: width 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+#progress-percentage {
+    font-weight: bold;
+    font-family: var(--font-family2);
+    min-width: 40px;
+}
+
+#progress-text {
+    font-size: 12px;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+
+/* Red state for failing a question */
+.progress-bar-error {
+    background: linear-gradient(90deg, #8b0000, #9a1f09) !important;
+    animation: shake 0.4s ease-in-out !important;
+}
+
+/* Shake animation for the bar when failing */
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+
+
+
+/* The animation that moves the color */
+@keyframes movingGradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+
+
+
+/* MAIN QUIZ APP RESPONSIVENESS */
+
+/*  TABLET VIEW (max-width: 768px) */
+@media (max-width: 768px) {
+    .app {
+        width: 95%; /* Use more of the screen */
+        margin: 20px auto;
+        box-shadow: 1px 4px 6px rgba(0,0,0,0.1);
+        
+    }
+
+    .app-header {
+        width: 95%;
+        margin: 20px auto;
+        box-shadow: 1px 4px 6px rgba(0,0,0,0.1);
+        
+    }
+
+    h1 {
+        font-size: 22px;
+    }
+}
+
+/*  MOBILE VIEW (max-width: 480px) */
+@media (max-width: 480px) {
+    .app {
+        width: 95%; /* Use more of the screen */
+        margin: 20px auto;
+        box-shadow: 1px 4px 6px rgba(0,0,0,0.1);
+        
+    }
+
+    .app-header {
+        width: 95%;
+        margin: 20px auto;
+        box-shadow: 1px 4px 6px rgba(0,0,0,0.1);
+        
+    }
+
+    #question {
+        font-size: 16px;
+    }
+    .btn {
+        padding: 12px; /* Larger hit area for fingers */
+    }
+}
+
+/*  TINY SCREEN VIEW (Down to 200px) */
+@media (max-width: 300px) {
+    h1 {
+        font-size: 18px;
+        padding-bottom: 15px;
+    }
+    #question {
+        font-size: 14px;
+    }
+    .app {
+        padding: 10px;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+    #next-btn {
+        width: 100%; /* Button takes full width on tiny screens */
+    }
+}
+
+
+
+
+
+
+
+
+
+
+/* RESPONSIVENESS FOR THE LANDING PAGE */
+
+ /* --- THE RESPONSIVE ENGINE --- */
+
+        /*  ULTRA TINY SCREENS (250px - 380px) */
+        @media (max-width: 380px) {
+            h1 { font-size: 1.55rem !important; line-height: 1.2 !important; letter-spacing: -0.02em; }
+            .logo-text { display: none; } /* Only show icon to save 100px of space */
+            .nav-container { padding: 0 10px !important; }
+            .hero-btn-group { flex-direction: column; width: 100%; }
+            .hero-btn-group button { width: 100%; padding: 12px !important; font-size: 0.9rem; }
+            .card { padding: 1.25rem !important; margin-bottom: 1rem; }
+            section { padding-left: 1rem !important; padding-right: 1rem !important; }
+            .auth-modal-content { padding: 1.5rem !important; width: 95% !important; }
+            .progress-wrapper { margin:8px !important;}
+            .app-header {box-shadow: 10px 15px 25px #12681b80}
+            .app {box-shadow: 10px 15px 25px  #12681b80}
+            
+
+        }
+
+        /*  TABLET / MOBILE (381px - 1024px) */
+        @media (max-width: 1024px) {
+            .hero-grid { grid-template-columns: 1fr; text-align: center; }
+            .hero-image-box { display: none; } /* Hide heavy visuals on mobile */
+            h1 { font-size: 1.55rem !important; line-height: 1.2 !important; letter-spacing: -0.02em; }
+            .progress-wrapper { margin:8px !important;}
+            .app-header {box-shadow: 10px 15px 25px #12681b80}
+            .app {box-shadow: 10px 15px 25px  #12681b80}
+        }
+
+        /*  LARGE SCREENS (1025px+) */
+        @media (min-width: 1025px) {
+            h1 { font-size: 4.5rem; }
+            .hero-grid { grid-template-columns: 1.2fr 0.8fr; }
+            .app-header {box-shadow: 10px 15px 25px #12681b80}
+            .app {box-shadow: 10px 15px 25px  #12681b80}
+        }
+
+        /* Button Tactile Feel */
+        .btn-tap { transition: transform 0.1s active; }
+        .btn-tap:active { transform: scale(0.95); }
+
+        .reveal { opacity: 0; transform: translateY(20px); transition: 0.6s all ease-out; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
