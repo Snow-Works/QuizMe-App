@@ -135,10 +135,9 @@ html{
     width: 100%;
     height: 100%;
     border-radius: 50%;
-    background: #0a3d10;
+    background-image:url("images/main logo .png");
     /* This creates the solid middle part */
     transform: translateZ(0); 
-    border: 44px solid #12681b;
     box-shadow: 10px 15px 25px rgba(0,0,0,0.3);
 }
 
