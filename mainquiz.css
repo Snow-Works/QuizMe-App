@@ -48,7 +48,7 @@ html{
     justify-content: space-between;
     text-align: center;
     align-items: center;
-    background: var(--btn-border-color);
+    background: #12681b;
     width: 90%;
     max-width: 37.5rem;
     margin: 1.5rem auto 0;
